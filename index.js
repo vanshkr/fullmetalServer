@@ -4,8 +4,6 @@ import bodyParser from 'body-parser';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import userRoutes from './routes/users.js';
-import watchlistRoutes from './routes/watchlist.js';
-import { insertData } from './insert.js';
 
 const app = express();
 dotenv.config();
@@ -14,10 +12,9 @@ app.use(bodyParser.json({limit : "30mb",extended:true}));
 app.use(bodyParser.urlencoded({limit : "30mb",extended:true}));
 app.use(cors());
 app.use('/user',userRoutes);
-app.use('/watchlist',watchlistRoutes);
 
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT ;
 
 
 mongoose.connect(process.env.CONNECTION_URL)
