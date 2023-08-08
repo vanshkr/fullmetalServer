@@ -5,6 +5,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import userRoutes from './routes/users.js';
 import watchlistRoutes from './routes/watchlist.js';
+import { insertData } from './insert.js';
 
 const app = express();
 dotenv.config();
@@ -16,7 +17,7 @@ app.use('/user',userRoutes);
 app.use('/watchlist',watchlistRoutes);
 
 
-const PORT = 3000;
+const PORT = process.env.PORT;
 
 
 mongoose.connect(process.env.CONNECTION_URL)
